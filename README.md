@@ -1,16 +1,22 @@
 # RiskAwarePOIRecommender
 
-We provide below a step-by-step set of examples in order to use the recommendation models.
+We provide below a step-by-step set of examples in order to use the following recommendation models:
+- **random**: this model recommends *K* POIs selected unifformly att random from the set of eligible ones
+- **closest**: this model recommends *K* POIs based on proximity, where a POI located closer to the location of each 
+  individual is preferred to a POI located further away
+- **local**: this model recommends *K* POIs following a locally optimal risk-aware recommendation model presented in 
+  the paper. It represents the current state of practice approach.
+- **global**: this model recommends *K* POIs following our proposed globally optimal risk-aware recommendation model 
 
 We can not share the real-world mobility data from SafeGraph. 
 You can gain accesss to *Patterns*, *Geometry* and *Places* datasets, from 
 [Advan](https://advanresearch.com) and [SafeGraph](https://www.safegraph.com).  
 
 In the following set of experiments, we work on synthetic POIs over an unoccupied area in order to redirect the 
-focus of our experiments to the performance our the models. As such, we came up with an anonymous city named 
+focus of our experiments to the performance of the above models. As such, we came up with an anonymous city named 
 *test_city*. 
 
-#### Step 1: generate test_city's layout
+#### Step 1: generate *test_city*'s layout
 
 `setup.ipynb`: generates test_city's POI layout, user queries, and outputs figures under *files/img/test_city*.
 
@@ -31,3 +37,4 @@ More specifically,
 * results can be saved by calling *rec.save(SAVE_TO)*
 * get the updated POI occupancies results by calling *rec.get_POIs()['avg_visits']
 * get the recommendations for each user by calling *rec.get_top_k()*
+
